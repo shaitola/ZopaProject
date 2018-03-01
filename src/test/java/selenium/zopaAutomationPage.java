@@ -25,26 +25,26 @@ import java.util.Random;
  */
 public class zopaAutomationPage {
 
-    private SeleniumWebDriver chromedriver;
+    private SeleniumWebDriver driver;
     public String postcode = "";
     private static final Faker faker = new Faker();
     private static final Logger LOGGER = LogManager.getLogger(URIUtils.class);
 
-    @Parameters({ "browser" })
+
     @BeforeClass
     public void startWebDriver() throws InterruptedException, IOException, AWTException {
-        chromedriver = new SeleniumWebDriver();
+        driver = new SeleniumWebDriver();
         checkURL(Locator.homePageUrl);
     }
 
     @BeforeMethod
     public void navigate() {
-            chromedriver.navigate(Locator.homePageUrl);
+            driver.navigate(Locator.homePageUrl);
     }
 
     @AfterClass
     public void tearDown() {
-        chromedriver.close();
+        driver.close();
     }
 
     public void checkURL(String NewUrl) throws IOException {
@@ -67,41 +67,41 @@ public class zopaAutomationPage {
     @Test
     public void test1() {
 
-        chromedriver.click(By.xpath(Locator.GET_ZOPA_LOAN));
+        driver.click(By.xpath(Locator.GET_ZOPA_LOAN));
 
-        chromedriver.waitinsecons("5");
-        chromedriver.scrollDown();
+        driver.waitinsecons("5");
+        driver.scrollDown();
 
-        chromedriver.click(By.xpath(Locator.SUBMIT_LOAN_BUTTON));
+        driver.click(By.xpath(Locator.SUBMIT_LOAN_BUTTON));
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress(firstName + "." + lastName);
         String phonenum = faker.phoneNumber().cellPhone();
 
-        chromedriver.sendkey(By.xpath(Locator.EMAIL_ADDRESS), email);
-        chromedriver.sendkey(By.xpath(Locator.FIRST_NAME), firstName);
-        chromedriver.sendkey(By.xpath(Locator.LAST_NAME) , lastName);
-        chromedriver.sendkey(By.xpath(Locator.PHONENUMBER), phonenum);
+        driver.sendkey(By.xpath(Locator.EMAIL_ADDRESS), email);
+        driver.sendkey(By.xpath(Locator.FIRST_NAME), firstName);
+        driver.sendkey(By.xpath(Locator.LAST_NAME) , lastName);
+        driver.sendkey(By.xpath(Locator.PHONENUMBER), phonenum);
 
 
         int[] data = new int[3];
         createBirthday(data);
-        chromedriver.sendkey(By.xpath(Locator.DD) , String.valueOf(data[0]));
-        chromedriver.sendkey(By.xpath(Locator.MM) ,String.valueOf(data[1]));
-        chromedriver.sendkey(By.xpath(Locator.YYYY), String.valueOf(data[2]));
+        driver.sendkey(By.xpath(Locator.DD) , String.valueOf(data[0]));
+        driver.sendkey(By.xpath(Locator.MM) ,String.valueOf(data[1]));
+        driver.sendkey(By.xpath(Locator.YYYY), String.valueOf(data[2]));
         String bitrhday = data[0]+ "/"+data[1]+"/"+data[2];
 
-        chromedriver.click(By.xpath(Locator.SHOW_MORE));
+        driver.click(By.xpath(Locator.SHOW_MORE));
 
-        chromedriver.waitinsecons("3");
+        driver.waitinsecons("3");
 
         try {
             GetPostcode();
-            chromedriver.sendkey(By.xpath(Locator.POSTCODE) , postcode);
+            driver.sendkey(By.xpath(Locator.POSTCODE) , postcode);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        chromedriver.click(By.xpath(Locator.LOOKUPADDRESS));
+        driver.click(By.xpath(Locator.LOOKUPADDRESS));
         WritetoLogger(firstName,lastName, email, phonenum , bitrhday);
 
     }

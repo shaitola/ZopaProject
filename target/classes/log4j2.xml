@@ -11,7 +11,7 @@
         </Console>
     </Appenders>
     <Appenders>
-        <File name="MyFile" fileName="target/logs/app.log">
+        <File name="MyFile" fileName="logs/app.log">
             <PatternLayout>
                 <Pattern>${LOG_PATTERN}</Pattern>
             </PatternLayout>

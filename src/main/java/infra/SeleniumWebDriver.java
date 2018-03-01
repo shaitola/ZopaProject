@@ -19,9 +19,11 @@ public class SeleniumWebDriver {
     private WebDriver driver;
 
     public SeleniumWebDriver() {
-        //openBrowser("firefox");
-        System.setProperty("webdriver.chrome.driver", "/Users/shay.toledano/Documents/tmp/project/selenium/etc/webdriver/chromedriver");
-        driver = new ChromeDriver();
+        String browserName = System.getProperty("selenium.web.browser");
+        openBrowser(browserName.toLowerCase());
+
+        //System.setProperty("webdriver.chrome.driver", "/Users/shay.toledano/Documents/tmp/project/selenium/etc/webdriver/chromedriver");
+        //driver = new ChromeDriver();
     }
 
     public void navigate(String url) {
@@ -61,7 +63,7 @@ public class SeleniumWebDriver {
             case "chrome":
                 driver = new ChromeDriver();
                 break;
-            case "IE":
+            case "ie":
                 driver = new InternetExplorerDriver();
                 break;
             case "safari":

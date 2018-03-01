@@ -9,8 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <java-version>1.8</java-version>
+        <testng.tests.testnames>test1</testng.tests.testnames>
         <api.tests.testng.file>etc/testng/main-testng.xml</api.tests.testng.file>
         <webdriver.chrome.driver>etc/webdriver/chromedriver</webdriver.chrome.driver>
+        <selenium.web.browser>chrome</selenium.web.browser>
     </properties>
     <dependencies>
         <dependency>
@@ -28,11 +30,6 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>2.10.0</version>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -70,18 +67,33 @@
     <build>
         <plugins>
             <plugin>
+                <!--surefire:test runs the unit tests of an application-->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20.1</version>
                 <configuration>
+                    <systemProperties>
+                        <property>
+                            <name>log4j.configuration</name>
+                            <value>log4j2.xml</value>
+                        </property>
+                    </systemProperties>
                     <properties>
                         <property>
-                            <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                            <name>testnames</name>
+                            <value>${testng.tests.testnames}</value>
                         </property>
+                        <workingDirectory>target/</workingDirectory>
                     </properties>
                     <suiteXmlFiles>
                         <suiteXmlFile>${api.tests.testng.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <!--<webdriver.ie.driver>${webdriver.ie.driver}</webdriver.ie.driver>-->
+                        <!--<webdriver.gecko.driver>${webdriver.firefox.driver}</webdriver.gecko.driver>-->
+                        <!--<webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>-->
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

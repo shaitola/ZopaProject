@@ -1,5 +1,12 @@
-/nbproject/private/config.properties
-/nbproject/private/private.properties
-/nbproject/private/private.xml
-/nbproject/project.properties
-/nbproject/project.xml
+# User-specific stuff:
+# IntelliJ ignored files
+.idea/*
+target
+logs
+*.iml
+
+# In case your project is edited in IntelliJ, runConfigurations are shared
+!.idea/runConfigurations/
+
+# Mac ignored files
+.DS_Store
