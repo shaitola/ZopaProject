@@ -23,11 +23,9 @@ import java.util.Random;
 /**
  * Created by shay.toledano on 10/22/15.
  */
-public class SOconnectorPage {
+public class zopaAutomationPage {
 
     private SeleniumWebDriver chromedriver;
-    //public WebDriver Firefoxdriver = new FirefoxDriver();
-    //public int randomint = 0;
     public String postcode = "";
     private static final Faker faker = new Faker();
     private static final Logger LOGGER = LogManager.getLogger(URIUtils.class);
@@ -35,9 +33,7 @@ public class SOconnectorPage {
     @Parameters({ "browser" })
     @BeforeClass
     public void startWebDriver() throws InterruptedException, IOException, AWTException {
-        //System.setProperty("webdriver.chrome.driver", "/Users/shay.toledano/Documents/tmp/project/selenium/etc/webdriver/chromedriver");
         chromedriver = new SeleniumWebDriver();
-
         checkURL(Locator.homePageUrl);
     }
 
@@ -55,7 +51,6 @@ public class SOconnectorPage {
         URL url1 = new URL(NewUrl);
         HttpURLConnection conn = (HttpURLConnection) url1.openConnection();
         conn.setRequestMethod("GET");
-        //System.out.println(String.format("Fetching %s ...", url1));
         try {
             int responseCode = conn.getResponseCode();
             if (responseCode == 200) {
@@ -111,28 +106,6 @@ public class SOconnectorPage {
 
     }
 
-/*
-    public int getRandomNumber(){
-        int randomInt =0;
-        Random rg = new Random();
-        for (int idx = 1; idx <= 99999; ++idx){
-            randomInt = rg.nextInt(99999);
-            //System.out.println("Generated : " + randomInt);
-        }
-        System.out.println("Generated : " + randomInt);
-        return randomInt;
-    }
-
-    public String generateEmail(int length) {
-        String allowedChars="abcdefghijklmnopqrstuvwxyz" +   //alphabets
-                "1234567890";   //numbers
-
-        String email="";
-        String temp= RandomStringUtils.random(length,allowedChars);
-        email=temp.substring(0,temp.length()-9)+"@test.org";
-        return email;
-    }
-*/
 
     private String GetPostcode() throws Exception {
 
@@ -141,14 +114,7 @@ public class SOconnectorPage {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-        // optional default is GET
         con.setRequestMethod("GET");
-
-
-        int responseCode = con.getResponseCode();
-        //System.out.println("\nSending 'GET' request to URL : " + url);
-        //System.out.println("Response Code : " + responseCode);
-
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -162,8 +128,6 @@ public class SOconnectorPage {
 
         JSONObject myResponse = new JSONObject(response.toString());
         JSONObject form_data = myResponse.getJSONObject("result");
-        //System.out.println("result after Reading JSON Response");
-        //System.out.println("origin- "+form_data.getString("postcode"));
         postcode = form_data.getString("postcode");
 
         return postcode;

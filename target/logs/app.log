@@ -1,7 +1,0 @@
-16:26:21.939 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - ---------------parameters Result for : 2018-03-01T16:26:21.923-------------
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the firstName: Alvis
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the lastName: Hilpert
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the email: Alvis.Hilpert@hotmail.com
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the phonenumber: (124) 399-1182
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the birthday: 13/8/2014
-16:26:21.947 [main] INFO  jdk.nashorn.internal.runtime.URIUtils - this is the postcode: RH20 4LY
