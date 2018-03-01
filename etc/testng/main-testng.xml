@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="name1" verbose="1" parallel="false">
+    <!-- Every day jobs in Jenkins for the Regression -->
+    <test name="test1" >
+        <parameter name="browser" value="Firefox"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="IE"/>
+        <!--<groups>-->
+            <!--<run>-->
+                <!--<include name="Core.BVTX"/>-->
+            <!--</run>-->
+        <!--</groups>-->
+
+        <packages>
+            <package name="selenium.*" />
+        </packages>
+
+    </test>
+</suite>
+
