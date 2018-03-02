@@ -27,3 +27,13 @@ Here is the list of External dependencies used in this porject
             <version>2.10.0</version>
         </dependency>
 ```
+### Installing
+
+```
+1. Download the project
+2. open the project in intellij
+3. run the ZopaTestng file
+```
+## Running the tests
+
+The tests are running in Selenuim.
