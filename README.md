@@ -27,6 +27,11 @@ Here is the list of External dependencies used in this porject
             <version>2.10.0</version>
         </dependency>
 ```
+## Usage
+selenium - framework for web applications , used for all the ui tests
+javafaker - used to create real first name / last name / email / phone
+log4j - log the data in the application
+
 ### Installing
 
 ```
