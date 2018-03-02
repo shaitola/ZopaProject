@@ -1,0 +1,41 @@
+{
+	"variables": [],
+	"info": {
+		"name": "zopa",
+		"_postman_id": "96aadd69-f68d-381a-f2cf-21b10adc8280",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://zopa-partners.apigee.io/V1/quote/without-credit-file",
+			"request": {
+				"url": "https://zopa-partners.apigee.io/V1/quote/without-credit-file",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"loan_amount\": 1110,\n  \"loan_term\": 24,\n  \"email\": \"c53c6738cf07@example.com\",\n  \"first_name\": \"Bob\",\n  \"last_name\": \"Bob\",\n  \"title\": \"Mr\",\n  \"date_of_birth\": \"1998-04-12\",\n  \"home_phone\": \"01234567890\",\n  \"employment_status\": \"EMPLOYED_FULL_TIME\",\n  \"residential_status\": \"OWNER_WITH_MORTGAGE\",\n  \"loan_purpose\": \"CAR\",\n  \"rent\": 1250,\n  \"additional_income\": 500,\n  \"newsletter_updates\": true,\n  \"addresses\": [\n    {\n      \"house_number\": \"123\",\n      \"house_name\": \"The Old Post Office\",\n      \"street_1\": \"Long Road\",\n      \"street_2\": \"Park Lane\",\n      \"post_town\": \"London\",\n      \"post_code\": \"a11aa\",\n      \"start_date\": \"2009-12-12\",\n      \"ptcabs\": \"PTCAB010000\"\n    }\n  ],\n  \"current_employer\": {\n    \"company_name\": \"Zopa\",\n    \"salary\": \"string\",\n    \"time_at\": 36,\n    \"job_title\": \"Hard Worker\",\n    \"address\": \"123 Street Lane\"\n  },\n  \"assets\": [\n    {\n      \"description\": \"Apple iPhone 11X\",\n      \"quantity\": 4,\n      \"price\": 99.99,\n      \"deposit\": 0,\n      \"details\": \"{ \\\"manufacturer\\\": \\\"Apple\\\" }\"\n    }\n  ]\n}"
+				},
+				"description": "POST call to the /V1/quote/without-credit-file endpoint"
+			},
+			"response": []
+		}
+	]
+}
