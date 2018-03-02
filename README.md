@@ -39,7 +39,8 @@ log4j - log the data in the application
 ```
 1. Download the project
 2. open the project in intellij
-3. run the ZopaTestng file
+3. click on Maven Projects (right side), then click on Reimport All Maven Projects
+4. run the ZopaTestng file
 ```
 ## Running the tests
 
