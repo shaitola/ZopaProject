@@ -21,7 +21,7 @@ import java.util.Random;
 
 
 /**
- * Created by shay.toledano on 10/22/15.
+ * Created by shay.toledano on 2/28/18.
  */
 public class zopaAutomationPage {
 
@@ -46,7 +46,7 @@ public class zopaAutomationPage {
     public void tearDown() {
         driver.close();
     }
-
+    //check that url is alive
     public void checkURL(String NewUrl) throws IOException {
         URL url1 = new URL(NewUrl);
         HttpURLConnection conn = (HttpURLConnection) url1.openConnection();
@@ -76,6 +76,7 @@ public class zopaAutomationPage {
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();
         String email = faker.internet().emailAddress(firstName + "." + lastName);
+        //Pattern p2 = Pattern.compile("^((0044|0|\\+?44)[12378]\\d{8,9}$)");
         String phonenum = faker.phoneNumber().cellPhone();
 
         driver.sendkey(By.xpath(Locator.EMAIL_ADDRESS), email);
@@ -106,7 +107,7 @@ public class zopaAutomationPage {
 
     }
 
-
+    //useing postcodes.io to get a random validate uk postcode
     private String GetPostcode() throws Exception {
 
         String url = "http://api.postcodes.io/random/postcodes";
@@ -133,7 +134,7 @@ public class zopaAutomationPage {
         return postcode;
 
     }
-
+    //Write data to app.log file
     public void WritetoLogger(String firstname , String lastname , String email, String phonenumber , String bitrhday) {
 
         LOGGER.info("---------------" + "parameters Result for : " + LocalDateTime.now() + "-------------");
